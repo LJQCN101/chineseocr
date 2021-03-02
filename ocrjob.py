@@ -12,8 +12,8 @@ from crnn.keys import alphabetChinese,alphabetEnglish
 if ocrFlag=='keras':
     if GPU:
         os.environ["CUDA_VISIBLE_DEVICES"] = str(GPUID)
-        import tensorflow as tf
-        from keras import backend as K
+        import tensorflow.compat.v1 as tf
+        from tensorflow.compat.v1.keras import backend as K
         config = tf.ConfigProto()
         config.gpu_options.allocator_type = 'BFC'
         config.gpu_options.per_process_gpu_memory_fraction = 0.1## GPU最大占用量

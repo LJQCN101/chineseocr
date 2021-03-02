@@ -5,13 +5,13 @@ Created on Sun Aug  4 01:01:37 2019
 keras ocr model
 @author: chineseocr
 """
-from keras.layers import (Conv2D,BatchNormalization,MaxPool2D,Input,Permute,Reshape,Dense,LeakyReLU,Activation, Bidirectional, LSTM, TimeDistributed)
-from keras.models import Model
-from keras.layers import ZeroPadding2D
-from keras.activations import relu
+from tensorflow.compat.v1.keras.layers import (Conv2D,BatchNormalization,MaxPool2D,Input,Permute,Reshape,Dense,LeakyReLU,Activation, Bidirectional, LSTM, TimeDistributed)
+from tensorflow.compat.v1.keras.models import Model
+from tensorflow.compat.v1.keras.layers import ZeroPadding2D
+from tensorflow.compat.v1.keras.activations import relu
 from crnn.util import resizeNormalize ,strLabelConverter
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 graph = tf.get_default_graph()##解决web.py 相关报错问题
 def keras_crnn(imgH, nc, nclass, nh, leakyRelu=False,lstmFlag=True):
     """
