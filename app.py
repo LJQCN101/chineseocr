@@ -21,15 +21,19 @@ from apphelper.image import union_rbox,adjust_box_to_origin,base64_to_PIL
 from application import trainTicket,idcard 
 if yoloTextFlag =='keras' or AngleModelFlag=='tf' or ocrFlag=='keras':
     if GPU:
+
         os.environ["CUDA_VISIBLE_DEVICES"] = str(GPUID)
         import tensorflow.compat.v1 as tf
+
+        tf.compat.v1.disable_eager_execution()
         from tensorflow.compat.v1.keras import backend as K
         config = tf.ConfigProto()
         config.gpu_options.allocator_type = 'BFC'
         config.gpu_options.per_process_gpu_memory_fraction = 0.3## GPU最大占用量
         config.gpu_options.allow_growth = True##GPU是否可动态增加
         K.set_session(tf.Session(config=config))
-        K.get_session().run(tf.global_variables_initializer())
+        session = K.get_session()
+        session.run(tf.global_variables_initializer())
     
     else:
       ##CPU启动

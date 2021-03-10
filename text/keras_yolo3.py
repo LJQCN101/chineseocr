@@ -8,7 +8,7 @@ Reference: https://github.com/qqwweee/keras-yolo3.git
 from functools import reduce
 from functools import wraps
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 """
 from keras import backend as K
 from keras.layers import Conv2D, Add, ZeroPadding2D, UpSampling2D, Concatenate, MaxPooling2D,Input

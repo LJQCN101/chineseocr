@@ -9,7 +9,7 @@ from text.keras_yolo3 import yolo_text,box_layer,K
 from apphelper.image import resize_im
 from PIL import Image
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 graph = tf.get_default_graph()##解决web.py 相关报错问题
 anchors = [float(x) for x in keras_anchors.split(',')]

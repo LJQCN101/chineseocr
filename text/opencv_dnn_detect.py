@@ -8,7 +8,7 @@ from apphelper.image import letterbox_image
 
 if AngleModelFlag=='tf':
     ##转换为tf模型，以便GPU调用
-    import tensorflow as tf
+    import tensorflow.compat.v1 as tf
     from tensorflow.python.platform import gfile
     config = tf.ConfigProto(allow_soft_placement=True)
     sess = tf.Session(config=config)
